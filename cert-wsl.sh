@@ -142,6 +142,7 @@ import_certs_to_wsl() {
         # Ensure it's a file and not a directory
         [ -f "$cert" ] || continue
 
+        # TODO: Fix this check
         if openssl x509 -in "$cert" -noout -text > /dev/null 2>&1; then
             log SUCCESS "Certificate is already in PEM format: $(basename "$cert")"
         else
